@@ -1,0 +1,12 @@
+<%@blogs.each do |blog| %>
+<a href='/blogpost/<%=blog.id%>'>
+ <div><%= blog.content%></div>
+ </a>
+
+<%end %>
+
+
+<form class="" action="/profile" method="post">
+  <textarea name="content" rows="8" cols="80"></textarea>
+  <input type="submit" name="" value="">
+</form>

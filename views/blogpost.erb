@@ -1,0 +1,15 @@
+<%= @blog.content %>
+
+<%@comments.each do |comment| %>
+<div class="">
+  <%=@user  %>
+</div>
+<div class="">
+<%= comment.acomment %>
+</div>
+<%end %>
+<form class="" action="/blogpost" method="post">
+  <textarea name="acomment" rows="8" cols="80"></textarea>
+  <input type="submit" name="" value="Comment">
+  <input type="hidden" name="blog_id" value="<%=@blog_id%>">
+</form>
