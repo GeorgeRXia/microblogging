@@ -14,6 +14,7 @@ end
 
 post "/" do
 
+User.create(params[:comment])
 
 
 end
