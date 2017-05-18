@@ -16,7 +16,12 @@ post "/" do
 
 User.create(params[:comment])
 
-redirect "/profile"
+redirect "/login"
+end
+
+get "/login" do
+
+
 end
 
 get "/profile" do
