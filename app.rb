@@ -13,7 +13,7 @@ erb :index
 end
 
 post "/" do
-  
+
 
 
 end
@@ -25,7 +25,7 @@ end
 
 
 
-get "/blog/:id"
+get "/blog/:id" do
 
 erb :otherprofile
 end
