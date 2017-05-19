@@ -5,8 +5,12 @@ class Blog < ActiveRecord::Base
 end
 
 class User < ActiveRecord::Base
+
   has_many :blogs
   has_many :comments
+
+
+
 end
 
 class Comment < ActiveRecord::Base

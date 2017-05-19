@@ -30,12 +30,15 @@ post "/login" do
 
   user = User.where(username: user_name_given).first
 
-  if user.password == password_given
+  if !user
+  redirect "/login"
+elsif user.password != password_given
+redirect "/login"
+else
+
     session[:user_id] = user.id
 
     redirect "/profile"
-  else
-    redirect "/login"
   end
 
 
@@ -50,6 +53,8 @@ end
 get "/profile" do
   @blogs = User.find(session[:user_id]).blogs
 
+  @other_users = User.all
+
 erb :profile
 end
 
@@ -59,6 +64,32 @@ content = params[:content]
 Blog.create(user_id: session[:user_id], content: content)
 
 redirect "/profile"
+end
+
+get "/edit" do
+User.find(session[:user_id])[:email]
+
+
+@user = User.find(session[:user_id])
+
+
+
+erb :edit
+
+end
+
+post "/edit" do
+ p params[:comment]
+
+  params[:comment].delete("username")
+  p params[:comment]
+    params[:comment]. each do |key|
+ p key[0]
+    end
+
+
+# User.update(session[:user_id], )
+  redirect "/profile"
 end
 
 get "/blogpost/:id" do
@@ -78,7 +109,11 @@ Comment.create(user_id: session[:user_id], blog_id: blog_id, acomment: params[:a
 
 redirect "/blogpost/#{blog_id}"
 end
-get "/blog/:id" do
+
+
+get "/otherprofile/:id"
+
+@other_user = User.find(params[:id])
 
 erb :otherprofile
 end

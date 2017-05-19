@@ -10,3 +10,16 @@
   <textarea name="content" rows="8" cols="80"></textarea>
   <input type="submit" name="" value="">
 </form>
+
+<a href="/edit"> Edit Account Details </a>
+
+
+  <% @other_users.each do |user| %>
+<div class="">
+  <a href='/otherprofile/<%= "#{user.id}" %>'> 
+  <%= user.username %>
+  </a>
+</div>
+
+
+  <% end %>
