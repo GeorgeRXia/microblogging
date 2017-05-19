@@ -79,16 +79,21 @@ erb :edit
 end
 
 post "/edit" do
- p params[:comment]
 
-  params[:comment].delete("username")
-  p params[:comment]
-    params[:comment]. each do |key|
- p key[0]
+  if params[:delete]
+
+User.find(session[:user_id]).delete
+    redirect "/"
+  end
+
+    params[:comment]. each do |key,value|
+      if value == ""
+        params[:comment].delete(key)
+      end
     end
+ params[:comment]
 
-
-# User.update(session[:user_id], )
+User.update(session[:user_id],params[:comment] )
   redirect "/profile"
 end
 
