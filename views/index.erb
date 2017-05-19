@@ -27,7 +27,8 @@
       <label>Interests:</label>
       <textarea name="[comment]interests" maxlength="250" rows="5" cols="50" placeholder="Tell Us What You Like!"></textarea></form></br>
 
-        <div class="submit-align">	
+
+        <div class="submit-align">
           <input type="submit" value="Sign up" class="submit">
         </div>
 
@@ -35,3 +36,15 @@
   </div>
 
 
+
+<% if Blog.all.length %>
+  <%= totalblogs = Blog.all.length  %>
+  <%= totalblogs1 = Blog.all.length - 10 %>
+
+  <%(totalblogs1..totalblogs).reverse_each do |i| %>
+    <div class="">
+      <%= Blog.find(i).content %>
+    </div>
+  <%end %>
+
+<% end %>

@@ -4,7 +4,13 @@
   <div class="">
     <a href= '/blogpost/<%="#{blog.id}"%>'>
     <%= blog.content %>
-    </a>
+  </a>
   </div>
+  <div class="">
+    <form class="" action='/favoriteblogs/<%="#{blog.id}"%>' method="post" id="favorite">  </form>
+    <button type="submit" name="button" form="favorite"></button>
+  </div>
+
+
 
 <% end %>

@@ -8,20 +8,20 @@ set :sessions, true
 require './models'
 
 get "/" do
-
   erb :index
+
 end
 
 post "/" do
-
   User.create(params[:comment])
   redirect "/login"
+
 end
 
 
 get "/login" do
-
   erb :login
+
 end
 
 post "/login" do
@@ -40,7 +40,6 @@ post "/login" do
     redirect "/profile"
   end
 
-
 end
 
 get "/logout" do
@@ -53,65 +52,69 @@ get "/profile" do
   @blogs = User.find(session[:user_id]).blogs
   @other_users = User.all
   erb :profile
+
 end
 
 post "/profile" do
   content = params[:content]
   Blog.create(user_id: session[:user_id], content: content)
   redirect "/profile"
+
 end
 
 get "/edit" do
-  User.find(session[:user_id])[:email]
-
-
-@user = User.find(session[:user_id])
-
-
-
-erb :edit
+  @user = User.find(session[:user_id])
+  erb :edit
 
 end
 
 post "/edit" do
-
   if params[:delete]
-
-User.find(session[:user_id]).delete
+    User.find(session[:user_id]).destroy
     redirect "/"
   end
 
-    params[:comment]. each do |key,value|
-      if value == ""
-        params[:comment].delete(key)
-      end
+  params[:comment]. each do |key,value|
+    if value == ""
+      params[:comment].delete(key)
     end
- params[:comment]
 
-User.update(session[:user_id],params[:comment] )
+  end
+
+  User.update(session[:user_id],params[:comment] )
   redirect "/profile"
 end
 
 get "/blogpost/:id" do
-@blog_id = params[:id]
-@blog = Blog.find(@blog_id)
-
-@comments = @blog.comments
-erb :blogpost
+  @blog_id = params[:id]
+  @blog = Blog.find(@blog_id)
+  @comments = @blog.comments
+  erb :blogpost
 end
 
 post "/blogpost" do
-blog_id = params[:blog_id]
-p blog_id
-Comment.create(user_id: session[:user_id], blog_id: blog_id, acomment: params[:acomment])
+  blog_id = params[:blog_id]
+  Comment.create(user_id: session[:user_id], blog_id: blog_id, acomment: params[:acomment])
 
-
-redirect "/blogpost/#{blog_id}"
+  redirect "/blogpost/#{blog_id}"
 end
-
 
 get "/otherprofile/:id" do
-
-@other_user = User.find(params[:id])
+  @other_user = User.find(params[:id])
+  erb :otherprofile
 end
 
+post "/favoriteblogs/:id" do
+  blogcontent = Blog.find(params[:id]).content
+  Favoriteblog.create(user_id: session[:user_id], blogcontent: blogcontent)
+  redirect "/blogpost"
+end
+
+
+
+
+get "/favoriteblogs" do
+
+  erb :favoriteblogs
+
+end
