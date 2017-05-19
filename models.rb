@@ -1,13 +1,19 @@
 class Blog < ActiveRecord::Base
   belongs_to :user
-  has_many :comments 
+  has_many :comments, dependent: :destroy
 
 end
 
 class User < ActiveRecord::Base
-  has_many :blogs
+
+  has_many :blogs, dependent: :destroy
   has_many :comments
+<<<<<<< HEAD
 end1
+=======
+
+end
+>>>>>>> 54d15cfdfc1723700cc6c4bb0854320994d49581
 
 class Comment < ActiveRecord::Base
   belongs_to :blog
