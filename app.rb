@@ -24,7 +24,6 @@ erb :profile
 end
 
 
-
 get "/blog/:id" do
 
 erb :otherprofile

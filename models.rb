@@ -7,7 +7,7 @@ end
 class User < ActiveRecord::Base
   has_many :blogs
   has_many :comments
-end1
+end
 
 class Comment < ActiveRecord::Base
   belongs_to :blog
