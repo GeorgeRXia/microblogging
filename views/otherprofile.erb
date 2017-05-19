@@ -1,14 +1,17 @@
 <%= @other_user.username %>
 <% @other_user.blogs.each do |blog| %>
 
+
   <div class="">
     <a href= '/blogpost/<%="#{blog.id}"%>'>
     <%= blog.content %>
   </a>
   </div>
   <div class="">
-    <form class="" action='/favoriteblogs/<%="#{blog.id}"%>' method="post" id="favorite">  </form>
-    <button type="submit" name="button" form="favorite"></button>
+    <form class="" action='/favoriteblogs/<%="#{blog.id}"%>' method="post" id="favorite">
+<input type="hidden" name="otheruser" value='<%="#{@other_user.id}"%>'>
+      </form>
+    <button type="submit" name="button" form="favorite"> Favorite it!</button>
   </div>
 
 

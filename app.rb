@@ -105,15 +105,23 @@ get "/otherprofile/:id" do
 end
 
 post "/favoriteblogs/:id" do
+  blogid = params[:otheruser]
   blogcontent = Blog.find(params[:id]).content
+
+  # userfavoritesblogs = Favoriteblog.where(user_id: session[:user_id])
+
+
+
   Favoriteblog.create(user_id: session[:user_id], blogcontent: blogcontent)
-  redirect "/blogpost"
+
+  redirect "/otherprofile/" << blogid
 end
 
 
 
 
 get "/favoriteblogs" do
+@favoriteblogs = Favoriteblog.all
 
   erb :favoriteblogs
 
