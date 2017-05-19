@@ -20,3 +20,11 @@
   Interests: <textarea name="[comment]interests" rows="8" cols="80" placeholder="Interests"></textarea>
 	<input type="submit" />
 </form>
+
+<%(1..2).each do |i| %>
+
+<div class="">
+  <%= Blog.find(i).content %>
+</div>
+
+<%end %>

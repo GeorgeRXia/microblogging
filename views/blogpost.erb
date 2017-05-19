@@ -2,7 +2,8 @@
 
 <%@comments.each do |comment| %>
 <div class="">
-  <%=@user%>
+  <% user_id = comment.user_id%>
+  <%= User.find(user_id).username %>
 </div>
 <div class="">
 <%= comment.acomment %>

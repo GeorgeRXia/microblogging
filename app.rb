@@ -93,7 +93,6 @@ post "/edit" do
 end
 
 get "/blogpost/:id" do
-@user = User.find(session[:user_id]).username
 @blog_id = params[:id]
 @blog = Blog.find(@blog_id)
 
@@ -111,7 +110,7 @@ redirect "/blogpost/#{blog_id}"
 end
 
 
-get "/otherprofile/:id"
+get "/otherprofile/:id" do
 
 @other_user = User.find(params[:id])
 
