@@ -16,7 +16,6 @@ post "/" do
 
 User.create(params[:comment])
 
-
 end
 
 get "/profile" do
