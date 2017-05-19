@@ -111,8 +111,5 @@ end
 get "/otherprofile/:id" do
 
 @other_user = User.find(params[:id])
-
-get "/blog/:id" do
-
-erb :otherprofile
 end
+
