@@ -108,13 +108,11 @@ redirect "/blogpost/#{blog_id}"
 end
 
 
-<<<<<<< HEAD
 get "/otherprofile/:id" do
 
 @other_user = User.find(params[:id])
-=======
+
 get "/blog/:id" do
->>>>>>> sam
 
 erb :otherprofile
 end
