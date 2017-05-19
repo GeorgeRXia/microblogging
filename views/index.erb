@@ -21,10 +21,14 @@
 	<input type="submit" />
 </form>
 
-<%(1..10).each do |i| %>
+<% if Blog.all.length %>
+  <%= totalblogs = Blog.all.length  %>
+  <%= totalblogs1 = Blog.all.length - 10 %>
 
-<div class="">
-  <%= Blog.find(i).content %>
-</div>
+  <%(totalblogs1..totalblogs).reverse_each do |i| %>
+    <div class="">
+      <%= Blog.find(i).content %>
+    </div>
+  <%end %>
 
-<%end %>
+<% end %>
