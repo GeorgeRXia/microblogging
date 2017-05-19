@@ -1,30 +1,37 @@
-<form action="/" method="post">
-  <div class="">
-  Name: <input type="text" name="[comment]name" placeholder="Your Name">
-  </div>
-  <div class="">
-	Username: <input type="text" name="[comment]username" placeholder="Username">
-  </div>
-  <div class="">
-	Password: <input type="text" name="[comment]password" placeholder="Password">
-  </div>
-  <div class="">
-  E-mail: <input type="text" name="[comment]email" placeholder="E-mail">
-  </div>
-  <div class="">
-  Location: <input type="text" name="[comment]location" placeholder="City, State">
-  </div>
-  <div class="">
-  Motto: <input type="text" name="[comment]motto" placeholder="Motto!">
-  </div>
-  Interests: <textarea name="[comment]interests" rows="8" cols="80" placeholder="Interests"></textarea>
-	<input type="submit" />
-</form>
+  <div class="sign-up-container" id="hi">
+    <form action="/" method="post">
+      <div class="">
+      <label>Name:</label>
+      <input type="text" autofocus name="[comment]name" placeholder="Full Name">
+      </div>
+      <div class="">
+    	<label>Username:</label>
+      <input type="text" name="[comment]username" placeholder="Be Creative!">
+      </div>
+      <div class="">
+    	<label>Password:</label>
+      <input type="text" name="[comment]password" placeholder="Password">
+      </div>
+      <div class="">
+      <label>E-mail:</label>
+      <input type="text" name="[comment]email" placeholder="E-mail">
+      </div>
+      <div class="">
+      <label>Location:</label>
+      <input type="text" name="[comment]location" placeholder="City, State">
+      </div>
+      <div class="">
+      <label>Motto:</label>
+      <input type="text" name="[comment]motto" placeholder="Motto!">
+      </div>
+      <label>Interests:</label>
+      <textarea name="[comment]interests" maxlength="250" rows="5" cols="50" placeholder="Tell Us What You Like!"></textarea></form></br>
 
-<%(1..10).each do |i| %>
+        <div class="submit-align">	
+          <input type="submit" value="Sign up" class="submit">
+        </div>
 
-<div class="">
-  <%= Blog.find(i).content %>
-</div>
+    </form>
+  </div>
 
-<%end %>
+

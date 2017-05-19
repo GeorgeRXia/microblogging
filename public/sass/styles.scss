@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-@import 'profile';
-=======
-@import 'profile.scss';
+@import 'variables';
 
-body {
-	background-color: teal;	
-}
->>>>>>> sam
+@import 'profile';
+@import 'home';
+@import 'layout';
+@import 'login';
+
+
+

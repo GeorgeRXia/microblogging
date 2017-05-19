@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/flash'
 
 
 set :database, "sqlite3:firstdb.sqlite3"
@@ -30,6 +31,7 @@ post "/login" do
   user = User.where(username: user_name_given).first
 
   if !user
+  	flash[:notice] = "Wrong Username and/or Password!"
     redirect "/login"
   elsif user.password != password_given
     redirect "/login"

@@ -1,6 +1,18 @@
-<form class="" action="/login" method="post">
+<div class="sign-up-container">
+	<form class="" action="/login" method="post">
+		<label>Username:</label>
+		<input type="text" name="username" value="">
+		<label>Password:</label>
+		<input type="text" name="password" value="">
 
-Username:<input type="text" name="username" value="">
-Password:<input type="text" name="password" value="">
-<input type="submit" name="" value="submit">
-</form>
+		<div class="submit-align">
+			<input type="submit" value="Log in" class="submit">
+		</div>
+	</form>
+
+	<% if flash[:notice] %>
+	<div class="flash-retry">
+		<%= flash[:notice]  %>
+	</div>
+	<% end %>
+</div>
