@@ -8,11 +8,16 @@
 		<div class="submit-align">
 			<input type="submit" value="Log in" class="submit">
 		</div>
-	</form>
-
 	<% if flash[:notice] %>
 	<div class="flash-retry">
 		<%= flash[:notice]  %>
+		<% elsif flash[:logged] %>
+		<%= flash[:logged]  %>
 	</div>
 	<% end %>
 </div>
+	</form>
+
+
+
+
