@@ -5,11 +5,26 @@
 
 <div>
 	<ul class="menu">
-		<a href="/"><li>Home</li></a>
+		<% if !session[:user_id] %>
+		<a href="/"><li>Sign up</li></a>
+		<% end %>
+
+		<% if session[:user_id] %>
 		<a href="/profile"><li>Profile</li></a>
+		<% end %>
+
+		<% if !session[:user_id] %>
 		<a href="/login"><li>Log in</li></a>
+		<% end %>
+		
+		<% if session[:user_id] %>
 		<a href="/logout"><li>Log out</li></a>
-		<a href="/edit"><li>Settings</li></a>
+		<% end %>
+
+		<% if session[:user_id] %>
+		<a href="/edit"><li>Account Settings</li></a>
+		<% end %>
+
 	</ul>
 	<div class="clear"></div>
 </div>

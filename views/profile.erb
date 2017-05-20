@@ -1,20 +1,19 @@
-<%@blogs.each do |blog| %>
-<a href='/blogpost/<%=blog.id%>'>
-  <div class="">
-    <% date = blog.created_at%>
-<%= date %>
-  </div>
- <div><%= blog.content%></div>
- </a>
 
+
+<% @blogs.each do |blog| %>
+  <a href='/blogpost/<%=blog.id%>'>
+    <div class="">
+      <% date = blog.created_at%>
+      <%= date %>
+    </div>
+    <div><%= blog.content%></div>
+  </a>
 <%end %>
 
 <form class="" action="/profile" method="post">
   <textarea name="content" rows="8" cols="80" maxlength= "150"></textarea>
-  <input type="submit" name="" value="BLOG IT">
+  <input type="submit" name="" value="Post">
 </form>
-
-<a href="/edit"> Edit Account Details </a>
 
 
 <% @other_users.each do |user| %>
