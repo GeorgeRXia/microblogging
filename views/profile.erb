@@ -1,5 +1,7 @@
 
 
+ <div class="background"></div>
+
 <% @blogs.each do |blog| %>
   <a href='/blogpost/<%=blog.id%>'>
     <div class="">
@@ -10,23 +12,24 @@
   </a>
 <%end %>
 
-<form class="" action="/profile" method="post">
-  <textarea name="content" rows="8" cols="80" maxlength= "150"></textarea>
-  <input type="submit" name="" value="Post">
-</form>
+<div class="blog-container">
+  <form class="" action="/profile" method="post">
+    <textarea name="content" rows="8" cols="80" maxlength= "150"></textarea>
+    <input type="submit" name="" value="Post">
+  </form>
+</div>
 
 
-<% @other_users.each do |user| %>
-  <%if session[:user_id] == user.id%>
+  <% @other_users.each do |user| %>
+  <% if session[:user_id] == user.id %>
 
-  <%else%>
+  <% else %>
     <div class="">
       <a href='/otherprofile/<%= "#{user.id}" %>'>
         <%= user.username %>
       </a>
     </div>
-  <%end%>
+  <% end %>
 <% end %>
 
-
-  <a href="/favoriteblog"><button type="button" name="">Favorite Blog</button></a>
+  <a href="/favoriteblog"><button type="button">Favorite Blog</button></a>

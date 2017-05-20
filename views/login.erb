@@ -1,22 +1,26 @@
-<div class="sign-up-container">
+
+ <div class="background"></div>
+
+<div class="login-container" id="modal">
 	<form class="" action="/login" method="post">
 		<label>Username:</label>
-		<input type="text" name="username" value="">
+		<input autofocus type="text" name="username">
 		<label>Password:</label>
-		<input type="text" name="password" value="">
+		<input type="text" name="password">
 
 		<div class="submit-align">
 			<input type="submit" value="Log in" class="submit">
 		</div>
 	<% if flash[:notice] %>
 	<div class="flash-retry">
-		<%= flash[:notice]  %>
+		<%= flash[:notice] %>
 		<% elsif flash[:logged] %>
 		<%= flash[:logged]  %>
 	</div>
 	<% end %>
 </div>
 	</form>
+
 
 
 
