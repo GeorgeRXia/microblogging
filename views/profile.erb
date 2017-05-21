@@ -1,3 +1,36 @@
+<div class="">
+Friends
+</div>
+
+
+
+<% @friends.each do |friend| %>
+<% friend = friend.friend_id %>
+<div class="">
+<a href='/otherprofile/<%="#{friend}"%>'>
+<%= User.find(friend).username %>
+</a>
+</div>
+<%end %>
+
+
+
+
+<% @friendsother.each do |friend| %>
+ <% friend = friend.user_id%>
+<div class="">
+<a href='/otherprofile/<%="#{friend}"%>'>
+ <%= User.find(friend).username %>
+ </a>
+ </div>
+ <%end %>
+
+
+
+<div class="">
+  Blogs
+</div>
+
 <%@blogs.each do |blog| %>
 <a href='/blogpost/<%=blog.id%>'>
   <div class="">
@@ -8,7 +41,9 @@
  </a>
 
 <%end %>
-
+<div class="">
+  post a new blog
+</div>
 <form class="" action="/profile" method="post">
   <textarea name="content" rows="8" cols="80" maxlength= "150"></textarea>
   <input type="submit" name="" value="BLOG IT">
@@ -16,7 +51,9 @@
 
 <a href="/edit"> Edit Account Details </a>
 
-
+<div class="">
+  Other Accounts
+</div>
 <% @other_users.each do |user| %>
   <%if session[:user_id] == user.id%>
 
@@ -30,4 +67,17 @@
 <% end %>
 
 
-  <a href="/favoriteblogs"><button type="button" name="">Favorite Blogs</button></a>
+<a href="/favoriteblogs"><button type="button" name="">Favorite Blogs</button></a>
+<p>Friend Requests</p>
+<% @friendrequests.each do |request| %>
+<% otheruser = request.user_id %>
+<%= User.find(otheruser).username %>
+<div class="">
+
+  <form class="" action='/createfriend/<%="#{otheruser}"%>' method="post" id="accept">
+    <input type="hidden" name="requestid" value='<%= "#{request.id}"%>'>
+  </form>
+  <button type="submit" name="button" form="accept">accept</button>
+</div>
+
+<%end%>

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :blogs, dependent: :destroy
   has_many :comments
   has_many :favoriteblogs, dependent: :destroy
+  has_many :requests, dependent: :destroy
+  has_many :friends, dependent: :destroy
 
 end
 
@@ -19,4 +21,12 @@ end
 class Favoriteblog < ActiveRecord::Base
   belongs_to :user
 
+end
+
+class Request < ActiveRecord::Base
+belongs_to :user
+end
+
+class Friend < ActiveRecord::Base
+belongs_to :user
 end

@@ -1,4 +1,36 @@
 <%= @other_user.username %>
+
+<% @CurrentUserFriendscheck.each do |friend|  %>
+
+<% if friend.friend_id == @other_user.id %>
+  <% @checker = true %>
+<% end %>
+
+<% end %>
+
+
+
+
+<% @CurrentUserFriendscheck2.each do |friend|  %>
+
+<% if friend.id == @other_user.id %>
+<% @checker = true %>
+
+
+<% end %>
+
+<% end %>
+
+<% if @checker %>
+
+
+<% else %>
+<form class="" action="/friendrequest" method="post" id="friendrequest">
+<input type="hidden" name="otheruser" value='<%="#{@other_user.id}"%>'>
+</form>
+<button type="submit" name="button" form="friendrequest">Add Friend</button>
+<% end %>
+
 <% @other_user.blogs.each do |blog| %>
 
 
