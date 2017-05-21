@@ -1,56 +1,55 @@
 
- <div class="background"></div>
+ <!-- <div class="background"></div> -->
+ <div class="">
+   Welcome to your Profile!
+ </div>
 
-<div class="">
-
-Friends
-</div>
-
-
-<div class="friend-container">
-  <div class="friends"> Friends </div>
+<div class="information-container">
+  <div class="information-container-head"> Friends </div>
   <% @friends.each do |friend| %>
-  <% friend = friend.friend_id %>
-  <div class="friend">
-  <a href='/otherprofile/<%="#{friend}"%>'>
-  <%= User.find(friend).username %>
-  </a>
-  </div>
+    <% friend = friend.friend_id %>
+    <div class="friend">
+      <a href='/otherprofile/<%="#{friend}"%>'>
+        <%= User.find(friend).username %>
+      </a>
+    </div>
   <%end %>
 
   <% @friendsother.each do |friend| %>
    <% friend = friend.user_id%>
   <div class="">
-  <a href='/otherprofile/<%="#{friend}"%>'>
-   <%= User.find(friend).username %>
-   </a>
-   </div>
+    <a href='/otherprofile/<%="#{friend}"%>'>
+      <%= User.find(friend).username %>
+    </a>
+  </div>
    <%end %>
 </div>
 
-<div class="account-details">
-<div class="">
-  <%= @user.username %>
-</div>
-<div class="">
-  <%= @user.location %>
-</div>
-<div class="">
-  <%= @user.motto %>
-</div>
-<div class="">
-  <%= @user.interests %>
-</div>
-</div>
 
 
+<div class="information-container">
+  <div class="information-container-head"> Bio:</div>
+  <div class="">
+    <%= "Username:" << @user.username %>
+  </div>
+  <div class="">
+    <%= "Location:" << @user.location %>
+  </div>
+  <div class="">
+  <%="Motto: "<< @user.motto %>
+  </div>
+  <div class="">
+    <%="Interests: "<< @user.interests %>
+  </div>
+</div>
+<div class="information-container">
 <div class="">
   Blogs
 </div>
 
 <%@blogs.each do |blog| %>
 <a href='/blogpost/<%=blog.id%>'>
-  <div class="">
+  <div class="information-container-head">
     <% date = blog.created_at%>
 <%= date %>
   </div>
@@ -58,13 +57,14 @@ Friends
  </a>
 
 <%end %>
-<div class="">
-  post a new blog
 </div>
 
 
 
 <div class="blog-container">
+  <div class="information-container-head">
+    Post a new blog
+  </div>
   <form class="" action="/profile" method="post">
     <textarea name="content" rows="8" cols="80" maxlength= "150"></textarea>
     <input type="submit" name="" value="BLOG IT">

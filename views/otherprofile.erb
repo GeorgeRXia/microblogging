@@ -1,6 +1,5 @@
 
-
-
+ <div class="background"></div>
 <%= @other_user.username %>
 <div class="">
   <%= @other_user.location %>
@@ -12,9 +11,6 @@
   <%= @other_user.interests %>
 </div>
 
-
-
-
 <% @CurrentUserFriendscheck.each do |friend|  %>
 
 <% if friend.friend_id == @other_user.id %>
@@ -22,9 +18,6 @@
 <% end %>
 
 <% end %>
-
-
-
 
 <% @CurrentUserFriendscheck2.each do |friend|  %>
 
@@ -37,8 +30,6 @@
 <% end %>
 
 <% if @checker %>
-
-
 <% else %>
 <form class="" action="/friendrequest" method="post" id="friendrequest">
 <input type="hidden" name="otheruser" value='<%="#{@other_user.id}"%>'>
