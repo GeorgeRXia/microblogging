@@ -22,22 +22,6 @@ class Favoriteblog < ActiveRecord::Base
 end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 class Request < ActiveRecord::Base
 belongs_to :user
 end
@@ -45,4 +29,3 @@ end
 class Friend < ActiveRecord::Base
 belongs_to :user
 end
->>>>>>> friendfeature
