@@ -56,8 +56,8 @@ get "/profile" do
     redirect '/login'
   end
 
-  user = User.find(session[:user_id])
-  @blogs = user.blogs
+  @user = User.find(session[:user_id])
+  @blogs = @user.blogs
   @user = User.find(session[:user_id])
   @blogs = @user.blogs
   @other_users = User.all
