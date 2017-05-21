@@ -25,7 +25,7 @@ get "/login" do
 end
 
 post "/login" do
-  alert("hi")
+
   user_name_given = params[:username]
   password_given = params[:password]
 
