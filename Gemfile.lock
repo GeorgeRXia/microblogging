@@ -14,13 +14,27 @@ GEM
       tzinfo (~> 1.1)
     arel (8.0.0)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
+    execjs (2.7.0)
     i18n (0.8.1)
+    libv8 (5.3.332.38.5)
+    mini_racer (0.1.9)
+      libv8 (~> 5.3)
     minitest (5.10.2)
     mustermann (1.0.0)
+    padrino-helpers (0.14.1.1)
+      i18n (~> 0.6, >= 0.6.7)
+      padrino-support (= 0.14.1.1)
+      tilt (>= 1.4.1, < 3)
+    padrino-support (0.14.1.1)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
     rake (12.0.0)
+    react-sinatra (0.1.1)
+      activesupport
+      connection_pool
+      padrino-helpers
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -41,7 +55,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  execjs
+  mini_racer
   rake
+  react-sinatra
   sinatra
   sinatra-activerecord
   sinatra-flash

@@ -49,6 +49,11 @@ get "/logout" do
 end
 
 get "/profile" do
+  if session[:user_id] == nil
+    flash[:logged] = "You Must First Log In To Access Profile"
+
+    redirect '/login'
+  end
   @blogs = User.find(session[:user_id]).blogs
   @other_users = User.all
   erb :profile

@@ -4,11 +4,9 @@ class Blog < ActiveRecord::Base
 end
 
 class User < ActiveRecord::Base
-
   has_many :blogs, dependent: :destroy
   has_many :comments
   has_many :favoriteblogs, dependent: :destroy
-
 end
 
 class Comment < ActiveRecord::Base
@@ -18,5 +16,20 @@ end
 
 class Favoriteblog < ActiveRecord::Base
   belongs_to :user
-
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
