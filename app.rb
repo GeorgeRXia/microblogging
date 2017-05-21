@@ -25,6 +25,7 @@ get "/login" do
 end
 
 post "/login" do
+  alert("hi")
   user_name_given = params[:username]
   password_given = params[:password]
 
@@ -86,6 +87,8 @@ end
 post "/edit" do
   if params[:delete]
     User.find(session[:user_id]).destroy
+    session[:user_id] = nil
+
     redirect "/"
   end
 

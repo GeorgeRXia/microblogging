@@ -6,3 +6,7 @@
 @import 'login';
 @import 'blog';
 @import 'edit';
+
+body {
+	background-color: $signup-bg-color;
+}
