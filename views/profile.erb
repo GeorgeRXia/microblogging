@@ -59,6 +59,7 @@
 <%end %>
 </div>
 
+<a href="/favoriteblogs"><button type="button" name="">Favorite Blogs</button></a>
 
 
 <div class="blog-container">
@@ -71,8 +72,8 @@
   </form>
 </div>
 
-
-<div class="">
+<div class="information-container">
+<div class="information-container-head">
   Other Accounts
 </div>
 <% @other_users.each do |user| %>
@@ -87,16 +88,18 @@
     </div>
   <% end %>
 <% end %>
+</div>
 
 
 
-<a href="/favoriteblogs"><button type="button" name="">Favorite Blogs</button></a>
-<p>Friend Requests</p>
+<div class="information-container">
+<div class="information-container-head">Friend Requests
+
+</div>
 <% @friendrequests.each do |request| %>
 <% otheruser = request.user_id %>
 <%= User.find(otheruser).username %>
 <div class="">
-
   <form class="" action='/createfriend/<%="#{otheruser}"%>' method="post" id="accept">
     <input type="hidden" name="requestid" value='<%= "#{request.id}"%>'>
   </form>
@@ -104,3 +107,4 @@
 </div>
 
 <%end%>
+</div>

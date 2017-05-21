@@ -1,12 +1,8 @@
 @import 'variables';
-
 @import 'profile';
 @import 'home';
 @import 'layout';
 @import 'login';
 @import 'blog';
 @import 'edit';
-
-body {
-	background-color: $signup-bg-color;
-}
+@import "otherprofile";

@@ -1,16 +1,16 @@
 
- <div class="background"></div>
-<%= @other_user.username %>
+<div class="information-container">
+<%= "Username: "<< @other_user.username %>
 <div class="">
-  <%= @other_user.location %>
+  <%="Location:" <<  @other_user.location %>
 </div>
 <div class="">
-  <%= @other_user.motto %>
+  <%= "Motto: " << @other_user.motto %>
 </div>
 <div class="">
-  <%= @other_user.interests %>
+  <%= "Interests: "<< @other_user.interests %>
 </div>
-
+</div>
 <% @CurrentUserFriendscheck.each do |friend|  %>
 
 <% if friend.friend_id == @other_user.id %>
