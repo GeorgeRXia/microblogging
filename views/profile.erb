@@ -1,45 +1,47 @@
 
-
-
  <div class="background"></div>
 
-<% @blogs.each do |blog| %>
-  <a href='/blogpost/<%=blog.id%>'>
-    <div class="">
-      <% date = blog.created_at%>
-      <%= date %>
-    </div>
-    <div><%= blog.content%></div>
-  </a>
-<%end %>
-
 <div class="">
+
 Friends
 </div>
 
 
+<div class="friend-container">
+  <div class="friends"> Friends </div>
+  <% @friends.each do |friend| %>
+  <% friend = friend.friend_id %>
+  <div class="friend">
+  <a href='/otherprofile/<%="#{friend}"%>'>
+  <%= User.find(friend).username %>
+  </a>
+  </div>
+  <%end %>
 
-<% @friends.each do |friend| %>
-<% friend = friend.friend_id %>
-<div class="">
-<a href='/otherprofile/<%="#{friend}"%>'>
-<%= User.find(friend).username %>
-</a>
+  <% @friendsother.each do |friend| %>
+   <% friend = friend.user_id%>
+  <div class="">
+  <a href='/otherprofile/<%="#{friend}"%>'>
+   <%= User.find(friend).username %>
+   </a>
+   </div>
+   <%end %>
 </div>
-<%end %>
 
-
-
-
-<% @friendsother.each do |friend| %>
- <% friend = friend.user_id%>
+<div class="account-details">
 <div class="">
-<a href='/otherprofile/<%="#{friend}"%>'>
- <%= User.find(friend).username %>
- </a>
- </div>
- <%end %>
-
+  <%= @user.username %>
+</div>
+<div class="">
+  <%= @user.location %>
+</div>
+<div class="">
+  <%= @user.motto %>
+</div>
+<div class="">
+  <%= @user.interests %>
+</div>
+</div>
 
 
 <div class="">
