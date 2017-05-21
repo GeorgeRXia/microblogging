@@ -1,29 +1,28 @@
 
 <form class="" action="/edit" method="post">
   <div class="">
-      <%= @user.username %>
+      <%= "Username" %>
       <input type="text" name="[user]username" value="">
   </div>
 <div class="">
-    <%= @user.password %>
+    <%= 'Password'%>
     <input type="password" name="[user]password" value="">
 </div>
 
-
-    <%= @user.email %>
-
+<div class="">
+    <%= 'E-mail' %>
     <input type="text" name="[user]email" value="">
 </div>
 <div class="">
-  <%= @user.location %>
+  <%= 'Location' %>
   <input type="text" name="[user]location" value="">
 </div>
 <div class="">
-  <%= @user.motto %>
+  <%= 'Motto' %>
   <input type="text" name="[user]motto" value="">
 </div>
 <div class="">
-  <%= @user.interests %>
+  <%= 'Interests' %>
   <input type="text" name="[user]interests" value="">
 </div>
 <input type="submit" name="" value="submit">

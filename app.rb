@@ -13,7 +13,7 @@ get "/" do
 end
 
 post "/" do
-  User.create(params[:comment])
+  User.create(params[:user])
   redirect "/login"
 
 end
@@ -49,13 +49,22 @@ get "/logout" do
 end
 
 get "/profile" do
+
   if session[:user_id] == nil
     flash[:logged] = "You Must First Log In To Access Profile"
 
     redirect '/login'
   end
-  @blogs = User.find(session[:user_id]).blogs
+
+  user = User.find(session[:user_id])
+  @blogs = user.blogs
+
   @other_users = User.all
+  @friendrequests = Request.where(otheruser_id: session[:user_id])
+  @friends = Friend.where(user_id: session[:user_id])
+  @friendsother = Friend.where(friend_id: session[:user_id])
+
+
   erb :profile
 
 end
@@ -106,6 +115,8 @@ end
 
 get "/otherprofile/:id" do
   @other_user = User.find(params[:id])
+  @CurrentUserFriendscheck = User.find(session[:user_id]).friends
+  @CurrentUserFriendscheck2 = Friend.where(friend_id: session[:user_id])
   erb :otherprofile
 end
 
@@ -129,11 +140,27 @@ end
 end
 
 
-
-
 get "/favoriteblogs" do
 @favoriteblogs = Favoriteblog.all
 
   erb :favoriteblogs
 
+end
+
+post "/friendrequest" do
+other_user = params[:otheruser].to_i
+
+Request.create(user_id: session[:user_id], otheruser_id: other_user)
+
+redirect back
+end
+
+
+post "/createfriend/:id" do
+
+Friend.create(user_id: session[:user_id], friend_id: params[:id])
+
+Request.find(params[:requestid].to_i).destroy
+
+redirect back
 end
