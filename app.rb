@@ -49,8 +49,8 @@ get "/logout" do
 end
 
 get "/profile" do
-  user = User.find(session[:user_id])
-  @blogs = user.blogs
+  @user = User.find(session[:user_id])
+  @blogs = @user.blogs
   @other_users = User.all
   @friendrequests = Request.where(otheruser_id: session[:user_id])
   @friends = Friend.where(user_id: session[:user_id])
