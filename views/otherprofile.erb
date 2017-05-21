@@ -1,4 +1,19 @@
+
+
+
 <%= @other_user.username %>
+<div class="">
+  <%= @other_user.location %>
+</div>
+<div class="">
+  <%= @other_user.motto %>
+</div>
+<div class="">
+  <%= @other_user.interests %>
+</div>
+
+
+
 
 <% @CurrentUserFriendscheck.each do |friend|  %>
 
@@ -30,7 +45,9 @@
 </form>
 <button type="submit" name="button" form="friendrequest">Add Friend</button>
 <% end %>
-
+<div class="">
+  Blogs
+</div>
 <% @other_user.blogs.each do |blog| %>
 
 
