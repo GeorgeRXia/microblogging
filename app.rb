@@ -74,14 +74,14 @@ post "/edit" do
     redirect "/"
   end
 
-  params[:comment]. each do |key,value|
+  params[:user]. each do |key,value|
     if value == ""
-      params[:comment].delete(key)
+      params[:user].delete(key)
     end
 
   end
 
-  User.update(session[:user_id],params[:comment] )
+  User.update(session[:user_id],params[:user] )
   redirect "/profile"
 end
 
@@ -105,16 +105,22 @@ get "/otherprofile/:id" do
 end
 
 post "/favoriteblogs/:id" do
-  blogid = params[:otheruser]
+  blogUsersId = params[:otheruser]
   blogcontent = Blog.find(params[:id]).content
 
-  # userfavoritesblogs = Favoriteblog.where(user_id: session[:user_id])
 
+historyOfPastFavoriteBlogs = Favoriteblog.all
 
+historyOfPastFavoriteBlogs.each do |pastblog|
 
-  Favoriteblog.create(user_id: session[:user_id], blogcontent: blogcontent)
+  if pastblog.blog_id == params[:id].to_i
+  redirect "/otherprofile/" << blogUsersId
+end
+end
 
-  redirect "/otherprofile/" << blogid
+  Favoriteblog.create(user_id: session[:user_id], blogcontent: blogcontent, blog_id: params[:id])
+
+  redirect "/otherprofile/" << blogUsersId
 end
 
 
