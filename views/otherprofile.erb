@@ -54,6 +54,10 @@
     <button type="submit" name="button" form="favorite"> Favorite it!</button>
   </div>
 
+  <form class="" action='/reblog/<%="#{blog.id}"%>' method="post" id="reblog">
+<input type="hidden" name="otheruser" value='<%="#{@other_user.id}"%>'>
+  </form>
+<button type="submit" name="button" form="reblog">Reblog it</button>
 
 
 <% end %>

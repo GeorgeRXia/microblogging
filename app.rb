@@ -168,3 +168,9 @@ Request.find(params[:requestid].to_i).destroy
 
 redirect back
 end
+
+
+post "/reblog/:id" do
+
+  redirect "/profile"
+end
