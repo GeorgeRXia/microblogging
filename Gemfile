@@ -9,4 +9,3 @@ gem 'sinatra-flash'
 gem 'react-sinatra'
 gem 'execjs'
 gem 'mini_racer'
-
