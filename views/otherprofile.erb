@@ -1,4 +1,4 @@
-
+<h1> User Bio</h1>
 <div class="information-container">
 <%= "Username: "<< @other_user.username %>
 <div class="">
@@ -11,6 +11,7 @@
   <%= "Interests: "<< @other_user.interests %>
 </div>
 </div>
+
 <% @CurrentUserFriendscheck.each do |friend|  %>
 
 <% if friend.friend_id == @other_user.id %>
@@ -36,9 +37,8 @@
 </form>
 <button type="submit" name="button" form="friendrequest">Add Friend</button>
 <% end %>
-<div class="">
-  Blogs
-</div>
+<hr>
+<h1>Blogs</h1>
 <% @other_user.blogs.each do |blog| %>
 
 

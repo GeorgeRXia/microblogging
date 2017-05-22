@@ -1,15 +1,20 @@
-<%= @blog.content %>
 
+
+<h1> BLOG Content</h1>
+<%= @blog.content %>
+<hr>
+
+<h2>Comments</h2>
 <%@comments.each do |comment| %>
   <div class="">
     <% user_id = comment.user_id%>
-    <%= User.find(user_id).username %>
+    <%= "Username: " << User.find(user_id).username %>
   </div>
   <div class="">
-    <%= comment.acomment %>
+    <%="User's comment:" << comment.acomment %>
   </div>
 <%end %>
-
+<h2>Comment on Blog</h2>
 <form class="" action="/blogpost" method="post">
   <textarea name="acomment" rows="8" cols="80"></textarea>
   <input type="submit" name="" value="Comment">
