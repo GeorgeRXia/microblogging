@@ -4,7 +4,7 @@ require 'sinatra/flash'
 
 
 set :database, "sqlite3:firstdb.sqlite3"
-set :sessions, true
+use Rack::Session::Cookie, key: "rack.session"
 require './models'
 
 get "/" do
@@ -170,7 +170,23 @@ redirect back
 end
 
 
+
 post "/reblog/:id" do
 
   redirect "/profile"
+end
+post "/editblogcontent/:id" do
+edit = params[:edits]
+
+blogupdate = Blog.find(params[:id])
+blogupdate.update(content: edit)
+
+redirect "/profile"
+end
+
+post "/editblog/:id" do
+Blog.find(params[:id]).destroy
+
+redirect "/profile"
+
 end

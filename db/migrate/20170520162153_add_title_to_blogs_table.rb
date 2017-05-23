@@ -1,7 +1,7 @@
 class AddTitleToBlogsTable < ActiveRecord::Migration[5.1]
   def change
   	change_table :blogs do |t|
-  		t.title :title
+  		t.string :title
   	end
   end
 end

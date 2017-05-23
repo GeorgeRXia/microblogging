@@ -55,7 +55,16 @@
   </div>
  <div><%= blog.content%></div>
  </a>
-
+ <div class="">
+   <form class="" action="/editblogcontent/<%=blog.id%>" method="post" id="editblog">
+     <textarea name="edits" rows="8" cols="80"></textarea>
+   </form>
+   <button type="submit" name="button" form= "editblog">Edit</button>
+ </div>
+ <div class="">
+<form class="" action="/editblog/<%=blog.id%>" method="post" id="deleteblog"></form>
+<button type="submit" name="button" form= "deleteblog">Delete</button>
+</div>
 <%end %>
 </div>
 
