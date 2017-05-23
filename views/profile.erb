@@ -55,6 +55,12 @@
   </div>
  <div><%= blog.content%></div>
  </a>
+<%if blog.otheruser_id  %>
+<% @reblog_username = User.find(blog.otheruser_id).username %>
+
+<%="Reblogged from #{@reblog_username}" %>
+
+<%end%>
  <div class="">
    <form class="" action="/editblogcontent/<%=blog.id%>" method="post" id="editblog">
      <textarea name="edits" rows="8" cols="80"></textarea>

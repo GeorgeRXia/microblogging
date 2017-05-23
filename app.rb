@@ -73,7 +73,7 @@ end
 
 post "/profile" do
   content = params[:content]
-  Blog.create(user_id: session[:user_id], content: content)
+  Blog.create(user_id: session[:user_id], content: content, otheruser_id: params[:otheruser])
   redirect "/profile"
 
 end
@@ -173,6 +173,8 @@ end
 
 post "/reblog/:id" do
 
+  content = Blog.find(params[:id]).content
+  Blog.create(user_id: session[:user_id], content: content, otheruser_id: params[:otheruser])
   redirect "/profile"
 end
 post "/editblogcontent/:id" do
