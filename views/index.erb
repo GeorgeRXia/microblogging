@@ -43,15 +43,15 @@
 <div class="information-container-head">
   Latest Blogs
 </div>
-<% if Blog.all.length >= 10 %>
-  <%total_blogs_reverse = Blog.all.reverse %>
 
-  <%10.times do |i| %>
+  <%total_blogs_reverse = Blog.last(10).reverse %>
+
+  <%total_blogs_reverse.each do |blog| %>
     <div class="">
-      <%= total_blogs_reverse[i].content %>
+      <%= blog.content %>
     </div>
   <%end %>
 
-<% end %>
+
 
 </div>
